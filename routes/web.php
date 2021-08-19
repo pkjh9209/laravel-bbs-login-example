@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FoodController;
 
 /*
@@ -15,3 +16,9 @@ use App\Http\Controllers\FoodController;
 */
 
 Route::get('/', [FoodController::class, 'food']);
+
+Route::get('/news', [NewsController::class, 'news']);
+
+Route::get('/boards',function(){
+  return view('boards.index');
+});

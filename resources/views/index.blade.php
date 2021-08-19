@@ -1,18 +1,15 @@
-
 {{-- index.blade.php --}}
-
 @section('title')
-    Welcome
+    food title
 @endsection
 
 @section('content')
-<ul>
+  <ul>
     @foreach ($foods as $food)
-        <li>{{$food}}</li>
+    <li>{{$food}}</li>
     @endforeach
-</ul>
+  </ul>
 @endsection
-
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -20,10 +17,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>App name - @yield('title')</title>
 </head>
 <body>
   <h1>@yield('title')</h1>
-    @yield('content')
+  @yield('content')
 </body>
 </html>
