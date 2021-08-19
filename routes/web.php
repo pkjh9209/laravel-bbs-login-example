@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\BoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,15 @@ use App\Http\Controllers\FoodController;
 |
 */
 
-Route::get('/', [FoodController::class, 'food']);
+//model test
+Route::get('/', [FoodController::class, 'food'])->name('food');
 
-Route::get('/news', [NewsController::class, 'news']);
+//db test
+Route::get('/news', [NewsController::class, 'news'])->name('news');
 
-Route::get('/boards',function(){
-  return view('boards.index');
-});
+//게시판
+Route::get('/boards',[BoardController::class,'index'])->name('index');
+
+Route::get('/boards/create',[BoardController::class,'create'])->name('create');
+
+Route::post('/boards', [BoardController::class,'store'])->name('store');
