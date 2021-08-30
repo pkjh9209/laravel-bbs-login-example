@@ -5,5 +5,9 @@
 @endsection
 
 @section('content')
-    Board Index
+    <p>Board Index</p>
+    @foreach ($boards as $item)
+      <a href="/boards/{{$item->id}}">Title : {{$item->title}}</a><br>
+    @endforeach
+
 @endsection

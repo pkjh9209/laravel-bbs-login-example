@@ -25,6 +25,11 @@ Route::get('/news', [NewsController::class, 'news'])->name('news');
 //게시판
 Route::get('/boards',[BoardController::class,'index'])->name('index');
 
+//글쓰기
 Route::get('/boards/create',[BoardController::class,'create'])->name('create');
 
+//
 Route::post('/boards', [BoardController::class,'store'])->name('store');
+
+// 
+Route::get('/boards/{board}',[BoardController::class,'show'])->name('show');

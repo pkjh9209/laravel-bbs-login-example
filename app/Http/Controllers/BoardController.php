@@ -8,7 +8,8 @@ use App\Models\Board;
 class BoardController extends Controller
 {
     public function index(){
-        return view('boards.index');
+        $boards = Board::all();
+        return view('boards.index',compact('boards'));
     }
 
     public function create(){
@@ -20,7 +21,11 @@ class BoardController extends Controller
             'title' => $request->input('title'),
             'story' => $request->input('story')
         ]);
-        return redirect('/boards');
+        return redirect('/boards/'.$board->id);
+    }
+
+    public function show(Board $board){
+        return view('boards.show',compact('board'));
     }
 
 }
