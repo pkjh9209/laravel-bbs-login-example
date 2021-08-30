@@ -28,4 +28,12 @@ class BoardController extends Controller
         return view('boards.show',compact('board'));
     }
 
+    public function edit(Board $board){
+        return view('boards.edit',compact('board'));
+    }
+
+    public function update(Board $board){
+        $board->update(request(['title', 'story']));
+        return redirect('/boards/'.$board->id);
+    }
 }
